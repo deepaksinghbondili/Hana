@@ -7,6 +7,6 @@ service CatalogService {
  entity Interactions_Items
     as projection on  interactions.Interactions_Items;
 
-    function save() returns String;
+    function validate() returns String;
 
 }
