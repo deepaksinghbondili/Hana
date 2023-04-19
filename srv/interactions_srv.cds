@@ -7,6 +7,8 @@ service CatalogService {
  entity Interactions_Items
     as projection on  interactions.Interactions_Items;
 
-    function validate() returns String;
+ entity OrgSet
+    as projection on interactions.Organization;   
 
+   // function validate() returns String;
 }
