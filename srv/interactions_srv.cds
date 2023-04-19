@@ -10,5 +10,5 @@ service CatalogService {
  entity OrgSet
     as projection on interactions.Organization;   
 
-   // function validate() returns String;
+   function validate(FLAG : String, Obj : String) returns String;
 }

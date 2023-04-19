@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "cds serve --with-mocks --in-memory?",
+      "command": "cds watch --profile hybrid --with-mocks --in-memory?",
       "name": "cds serve",
       "request": "launch",
       "type": "node-terminal",

@@ -1,0 +1,41 @@
+<mvc:View xmlns:simple="sap.gantt.simple" xmlns:tnt="sap.tnt" controllerName="cap.crudapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table id="idTable" items="{/items}">
+                <headerToolbar>
+                    <Toolbar >
+                        <ToolbarSpacer />
+                        <Button text="create" press="onCreate"></Button>
+                        <SearchField id="idSearch" liveChange="onSearch" width="20%"></SearchField> 
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Label text="Employee ID"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="Employee Name"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="Mobile Number"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="City"></Label>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells>
+                            <Text text="{EmployeeID}"></Text>
+                            <Text text="{EmployeeName}"></Text>
+                            <Text text="{Phone}"></Text>
+                            <Text text="{City}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
