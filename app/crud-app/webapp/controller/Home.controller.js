@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-empty */
+{}/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
