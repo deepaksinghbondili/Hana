@@ -33,7 +33,7 @@ sap.ui.define([
                     error: function (error) {
                         sap.m.MessageToast().show(error);
                     }
-                })
+                });
             },
             onToggleFooter: function () {
                 var page = this.byId("dynamicPageId");
@@ -58,18 +58,18 @@ sap.ui.define([
                 };
                 var oModel = that.getOwnerComponent().getModel("oModel");
                 oModel.callFunction("/validate", {
-                    method: "GET",
+                    method : "POST",
                     urlParameters: {
-                        FLAG: "C",
                         Obj: JSON.stringify(obj)
                     },
                     success: function (oData, _response) {
-                        sap.m.MessageToast.show("Created");
+                        var message = _response.data.validate.message;
+                        sap.m.MessageToast.show(message);
                         that.oCreateDialog.close();
                         that.onAfterRendering();
                     },
                     error: function (e) {
-                        sap.m.MessageToast().show(e);
+                        sap.m.MessageToast.show(e);
                     }
                 })
             },

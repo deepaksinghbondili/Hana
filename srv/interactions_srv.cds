@@ -9,6 +9,7 @@ service CatalogService {
 
  entity OrgSet
     as projection on interactions.Organization;   
-
-   function validate(FLAG : String, Obj : String) returns String;
+    
+   @cds.http.method: 'POST'
+   function validate(Obj : String) returns {message : String};
 }
