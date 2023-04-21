@@ -4,13 +4,13 @@
   <Dialog id="idDialog" title="Create Fragment">
     <form:SimpleForm id="idForm">
       <form:content>
-        <Label text="Enter Employee Id"></Label>
+        <Label text="Enter Employee ID"></Label>
         <Input id="idEmp"></Input>
         <Label text="Enter Employee Name"></Label>
         <Input id="idName"></Input>
-        <Label text="Enter Mobile Number"></Label>
+        <Label text="Mobile Number"></Label>
         <Input id="idNum"></Input>
-        <Label text="Enter City"></Label>
+        <Label text="City"></Label>
         <Input id="idCity"></Input>
       </form:content>
     </form:SimpleForm>

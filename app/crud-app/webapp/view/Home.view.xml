@@ -1,16 +1,35 @@
-<mvc:View xmlns:simple="sap.gantt.simple" xmlns:tnt="sap.tnt" controllerName="cap.crudapp.controller.Home"
+<mvc:View xmlns:f="sap.f" controllerName="cap.crudapp.controller.Home"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content>
-            <Table id="idTable" items="{/items}">
-                <headerToolbar>
-                    <Toolbar >
-                        <ToolbarSpacer />
-                        <Button text="create" press="onCreate"></Button>
-                        <SearchField id="idSearch" liveChange="onSearch" width="20%"></SearchField> 
-                    </Toolbar>
-                </headerToolbar>
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout">
+    <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:actions>
+                    <Button text="Create" type="Emphasized" press="onCreate"/>
+                    <Button text="Delete" type="Transparent" press="onDelete"/>
+                    <Button text="Toggle Footer" type="Transparent" press="onToggleFooter"/>
+                </f:actions>
+                <f:content>
+                </f:content>
+                <f:navigationActions>
+                    <Button icon="sap-icon://full-screen" type="Transparent" />
+                    <Button icon="sap-icon://exit-full-screen" type="Transparent" />
+                    <Button icon="sap-icon://decline" type="Transparent" />
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader>
+                <layout:HorizontalLayout allowWrapping="true">
+                    <layout:HorizontalLayout class="sapUiMediumMarginEnd">
+                        <SearchField id="idSearch" liveChange="onSearch"></SearchField>
+                    </layout:HorizontalLayout>
+                </layout:HorizontalLayout>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table id="idTable" sticky="HeaderToolbar,ColumnHeaders" items="{/items}" mode="MultiSelect" headerText="Employees">
                 <columns>
                     <Column>
                         <Label text="Employee ID"></Label>
@@ -24,6 +43,9 @@
                     <Column>
                         <Label text="City"></Label>
                     </Column>
+                    <Column width="5%">
+
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem >
@@ -32,10 +54,20 @@
                             <Text text="{EmployeeName}"></Text>
                             <Text text="{Phone}"></Text>
                             <Text text="{City}"></Text>
+                            <Button press="onEdit" icon="sap-icon://user-edit"></Button>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
-        </content>
-    </Page>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar>
+                <Button icon="sap-icon://message-popup" text="{/messagesLength}" type="Emphasized" press="onMessageButtonPress" visible="{= !!${/messagesLength}}"/>
+                <ToolbarSpacer/>
+                <Button type="Accept" text="Accept"/>
+                <Button type="Reject" text="Reject"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+
 </mvc:View>

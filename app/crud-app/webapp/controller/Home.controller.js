@@ -1,4 +1,5 @@
-var sap;
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ],
@@ -27,12 +28,16 @@ sap.ui.define([
                             items: oData.results
                         });
                         oTable.setModel(model);
-                        
+
                     },
                     error: function (error) {
                         sap.m.MessageToast().show(error);
                     }
                 })
+            },
+            onToggleFooter: function () {
+                var page = this.byId("dynamicPageId");
+                page.setShowFooter(!page.getShowFooter());
             },
             onCreate: function () {
                 that.oCreateDialog.open();
@@ -52,21 +57,33 @@ sap.ui.define([
                     City: city
                 };
                 var oModel = that.getOwnerComponent().getModel("oModel");
-                oModel.callFunction("/validate",{
-                    method : "GET",
-                    urlParameters : {
-                        FLAG : "C",
-                        Obj : JSON.stringify(obj)
+                oModel.callFunction("/validate", {
+                    method: "GET",
+                    urlParameters: {
+                        FLAG: "C",
+                        Obj: JSON.stringify(obj)
                     },
-                    success : function(oData,response){
+                    success: function (oData, _response) {
                         sap.m.MessageToast.show("Created");
                         that.oCreateDialog.close();
                         that.onAfterRendering();
                     },
-                    error : function(e){
+                    error: function (e) {
                         sap.m.MessageToast().show(e);
                     }
                 })
+            },
+
+            onDelete: function (oEvent) {
+
+            },
+
+            onEdit: function (oEvent) {
+                that.oCreateDialog.open();
+            },
+
+            onSearch: function (oEvent) {
+
             }
         });
     });
