@@ -6,7 +6,7 @@
         <f:title>
             <f:DynamicPageTitle>
                 <f:actions>
-                    <Button text="Create" type="Emphasized" press="onCreate"/>
+                    <Button text="Create" type="Emphasized" press="onCreate" id="idCreate"/>
                     <Button text="Delete" type="Transparent" press="onDelete"/>
                     <Button text="Toggle Footer" type="Transparent" press="onToggleFooter"/>
                 </f:actions>
