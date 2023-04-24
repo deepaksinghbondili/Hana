@@ -59,7 +59,7 @@ sap.ui.define([
                 };
                 var oModel = that.getOwnerComponent().getModel("oModel");
                 oModel.callFunction("/validate", {
-                    method : "POST",
+                    method : "GET",
                     urlParameters: {
                         Obj: JSON.stringify(obj)
                     },
